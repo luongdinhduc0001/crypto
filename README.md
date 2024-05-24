@@ -1,4 +1,4 @@
-# Cách sử dụng
+# Cách sử dụng các lược đồ MA-CP-ABE
 ## Bước 1: Cài đặt Python, C/C++ compiler và các thư viện cần thiết
 Sử dụng môi trường linux như ubuntu hoặc wsl trên windows để cài đặt các thư viện cần thiết một cách dễ nhất.
 
