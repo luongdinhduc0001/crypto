@@ -34,7 +34,7 @@ Lưu ý: Hai chính sách truy cập này khác ngữ nghĩa
 Nhập id của người dùng vào ô GID và các thuộc tính của người dùng vào ô User attributes rồi nhấn Register.
 Các AA thực hiện cấp các khóa bí mật tương ứng cho các thuộc tính mà nó quản lí tới người dùng đó. Bước này sử dụng các khóa bí mật của các AA. Đầu vào có cả gid của người dùng nên kể cả 2 người dùng có thuộc tính giống nhau thì cũng sẽ có các khóa bí mật khác nhau.
 
-Lưu ý: Không trùng id người dùng đã có, do chỉ là mô phỏng nên sẽ thay thế người dùng đã tồn tại.
+Lưu ý: Không trùng GID người dùng đã có, do chỉ là mô phỏng nên sẽ thay thế người dùng đã tồn tại nếu nhập GID đã tồn tại.
 ## Bước 7: Giải mã
 Nhập id của người dùng vào ô GID rồi nhấn Decrypt. Do chỉ là mô phỏng nên sẽ không có bước nhập mật khẩu người dùng.
 Bước này sử dụng các khóa bí mật của người dùng được cấp để giải mã dữ liệu.
