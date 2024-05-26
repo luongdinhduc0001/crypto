@@ -49,7 +49,11 @@ nếu người dùng có ít nhất 1 cặp thuộc tính (DOCTOR,PHD) hoặc (R
 
 # Các kết quả đo đạc
 Thời gian thực thi các bước sẽ khác nhau tùy thuộc vào số lượng thuộc tính, số lượng AA, số lượng thuộc tính của người dùng và chính sách truy cập.
-Ngoài ra nó còn phụ thuộc vào loại đường cong elliptic được chọn để khởi tạo hệ thống, các tham số của từng loại nằm trong file `pairingcurves.py`. Ở đây chúng ta lựa chọn lược đồ MAABE YJ14 để đo thời gian từng bước.
+Ngoài ra nó còn phụ thuộc vào loại đường cong elliptic được chọn để khởi tạo hệ thống, các tham số của từng loại nằm trong file `pairingcurves.py`. 
+
+![img0](time_measurement_results/security.png)
+
+Ở đây chúng ta lựa chọn lược đồ MAABE YJ14 để đo thời gian từng bước.
 Dưới đây là kết quả thời gian thực thi các bước với các tham số khác nhau:
 ## SS512
 Các cặp loại A hay SS512 được xây dựng trên đường cong `y^2=x^3+x` trên trường `F_q` đối với một số số nguyên tố `q=3 mod 4` . Cả `G_1` và `G_2` đều là nhóm điểm E(F_q) , vì vậy sự ghép cặp này là đối xứng. Cấp r là một thừa số nguyên tố nào đó của q+1.
