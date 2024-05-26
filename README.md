@@ -60,7 +60,7 @@ Các cặp loại A hay SS512 được xây dựng trên đường cong `y^2=x^3
 ![img4](time_measurement_results/SS512/Decrypt.png)
 
 ## SS1024
-Loại A1 hay SS1024 sử dụng cùng một phương trình nhưng có các trường khác nhau. Nó hỗ trợ các trường có thứ tự tổng hợp.
+Loại A1 hay SS1024 sử dụng cùng một phương trình nhưng có các trường khác nhau. Nó hỗ trợ các trường có bậc tổng hợp.
 
 ![img5](time_measurement_results/SS1024/AASetup.png)
 ![img6](time_measurement_results/SS1024/UserKeygen.png)
