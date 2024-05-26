@@ -46,3 +46,20 @@ nếu người dùng có ít nhất 1 cặp thuộc tính trong số (DOCTOR,PHD
 
 Với chính sách truy cập ((DOCTOR AND PHD) OR (RESEARCHER AND PROFESSOR)),
 nếu người dùng có ít nhất 1 cặp thuộc tính (DOCTOR,PHD) hoặc (RESEARCHER,PROFESSOR) thì sẽ giải mã thành công.
+
+# Các kết quả đo đạc
+Thời gian thực thi các bước sẽ khác nhau tùy thuộc vào số lượng thuộc tính, số lượng AA, số lượng thuộc tính của người dùng và chính sách truy cập.
+Ngoài ra nó còn phụ thuộc vào loại đường cong elliptic được chọn để khởi tạo hệ thống, các tham số của từng loại nằm trong file `pairingcurves.py`. Ở đây chúng ta lựa chọn lược đồ MAABE YJ14 để đo thời gian từng bước.
+Dưới đây là kết quả thời gian thực thi các bước với các tham số khác nhau:
+## SS512
+Các cặp loại A hay SS512 được xây dựng trên đường cong `y^2=x^3+x` trên trường `F_q` đối với một số số nguyên tố `q=3 mod 4` . Cả `G_1` và `G_2` đều là nhóm điểm E(F_q) , vì vậy sự ghép cặp này là đối xứng. Cấp r là một thừa số nguyên tố nào đó của q+1 .
+![img1](time_measurement_results/A/AASetup.png)
+![img2](time_measurement_results/A/UserKeygen.png)
+![img3](time_measurement_results/A/Encrypt.png)
+![img4](time_measurement_results/A/Decrypt.png)
+## SS1024
+Loại A1 hay SS1024 sử dụng cùng một phương trình nhưng có các trường khác nhau. Nó hỗ trợ các trường có thứ tự tổng hợp.
+![img1](time_measurement_results/A1/AASetup.png)
+![img2](time_measurement_results/A1/UserKeygen.png)
+![img3](time_measurement_results/A1/Encrypt.png)
+![img4](time_measurement_results/A1/Decrypt.png)
