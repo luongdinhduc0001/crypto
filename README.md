@@ -29,7 +29,14 @@ Bước này sử dụng các khóa công khai của các AA để mã hóa dữ
 Ví dụ:
 Data: "Alice" và Access Policy dạng: "((DOCTOR OR RESEARCHER) AND (PHD OR PROFESSOR))" hoặc "(DOCTOR AND PHD) OR (RESEARCHER AND PROFESSOR)". 
 
-Lưu ý: Hai chính sách truy cập này khác ngữ nghĩa
+Với chính sách truy cập dạng CNF ((DOCTOR OR RESEARCHER) AND (PHD OR PROFESSOR)),
+nếu người dùng có ít nhất 1 cặp thuộc tính trong số (DOCTOR,PHD), (RESEARCHER,PROFESSOR), (DOCTOR,PROFESSOR) và (RESEARCHER,PHD) thì sẽ giải mã thành công.
+
+Với chính sách truy cập dạng DNF ((DOCTOR AND PHD) OR (RESEARCHER AND PROFESSOR)),
+nếu người dùng có ít nhất 1 cặp thuộc tính (DOCTOR,PHD) hoặc (RESEARCHER,PROFESSOR) thì sẽ giải mã thành công.
+
+Lưu ý:  Cần chú ý đến việc nhập chính sách truy cập đúng định dạng. Nên chọn chính sách truy cập dạng DNF vì nó dễ hiểu và linh hoạt hơn, dạng CNF sẽ khó hiểu hơn đồng thời sinh ra nhiều chính sách con làm khó kiểm soát cũng như tăng thời gian thực thi.
+
 ## Bước 6: Đăng ký người dùng
 Nhập id của người dùng vào ô GID và các thuộc tính của người dùng vào ô User attributes rồi nhấn Register.
 Các AA thực hiện cấp các khóa bí mật tương ứng cho các thuộc tính mà nó quản lí tới người dùng đó. Bước này sử dụng các khóa bí mật của các AA. Đầu vào có cả gid của người dùng nên kể cả 2 người dùng có thuộc tính giống nhau thì cũng sẽ có các khóa bí mật khác nhau.
@@ -41,13 +48,6 @@ Bước này sử dụng các khóa bí mật của người dùng được cấ
 
 Nếu các thuộc tính của người dùng không đủ để giải mã, sẽ hiện thông báo lỗi. Còn nếu đủ, sẽ hiện thông báo thành công và kết quả giải mã.
 
-Ví dụ: Với chính sách truy cập dạng CNF ((DOCTOR OR RESEARCHER) AND (PHD OR PROFESSOR)),
-nếu người dùng có ít nhất 1 cặp thuộc tính trong số (DOCTOR,PHD), (RESEARCHER,PROFESSOR), (DOCTOR,PROFESSOR) và (RESEARCHER,PHD) thì sẽ giải mã thành công.
-
-Với chính sách truy cập dạng DNF ((DOCTOR AND PHD) OR (RESEARCHER AND PROFESSOR)),
-nếu người dùng có ít nhất 1 cặp thuộc tính (DOCTOR,PHD) hoặc (RESEARCHER,PROFESSOR) thì sẽ giải mã thành công.
-
-Nhận xét: Nên chọn chính sách truy cập dạng DNF vì nó dễ hiểu và linh hoạt hơn.
 # Các kết quả đo đạc
 Thời gian thực thi các bước sẽ khác nhau tùy thuộc vào số lượng thuộc tính, số lượng AA, số lượng thuộc tính của người dùng và chính sách truy cập.
 Ngoài ra nó còn phụ thuộc vào loại đường cong elliptic được chọn để khởi tạo hệ thống, các tham số của từng loại nằm trong file `pairingcurves.py`. 
@@ -71,3 +71,6 @@ Do các tham số lớn hơn nên thời gian thực thi các bước cũng lớ
 ![img6](time_measurement_results/SS1024/UserKeygen.png)
 ![img7](time_measurement_results/SS1024/Encrypt.png)
 ![img8](time_measurement_results/SS1024/Decrypt.png)
+
+Nhận xét: Thời gian thực thi các bước tăng theo số lượng thuộc tính sử dụng trong bước thiết lập AA và người dùng. Trong bước mã hóa, thời gian tăng theo số lượng thuộc tính trong chính sách truy cập. Trong bước giải mã, thời gian tăng theo số lượng thuộc tính của người dùng và số lượng chính sách con sinh ra từ chính sách truy cập.
+Riêng bước giải mã do có độ phức tạp là O(1) nên thời gian thực thi không thay đổi quá nhiều khi số lượng thuộc tính và số chính sách con tăng lên ít.
