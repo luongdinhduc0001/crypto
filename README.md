@@ -41,12 +41,13 @@ Bước này sử dụng các khóa bí mật của người dùng được cấ
 
 Nếu các thuộc tính của người dùng không đủ để giải mã, sẽ hiện thông báo lỗi. Còn nếu đủ, sẽ hiện thông báo thành công và kết quả giải mã.
 
-Ví dụ: Với chính sách truy cập ((DOCTOR OR RESEARCHER) AND (PHD OR PROFESSOR)),
+Ví dụ: Với chính sách truy cập dạng CNF ((DOCTOR OR RESEARCHER) AND (PHD OR PROFESSOR)),
 nếu người dùng có ít nhất 1 cặp thuộc tính trong số (DOCTOR,PHD), (RESEARCHER,PROFESSOR), (DOCTOR,PROFESSOR) và (RESEARCHER,PHD) thì sẽ giải mã thành công.
 
-Với chính sách truy cập ((DOCTOR AND PHD) OR (RESEARCHER AND PROFESSOR)),
+Với chính sách truy cập dạng DNF ((DOCTOR AND PHD) OR (RESEARCHER AND PROFESSOR)),
 nếu người dùng có ít nhất 1 cặp thuộc tính (DOCTOR,PHD) hoặc (RESEARCHER,PROFESSOR) thì sẽ giải mã thành công.
 
+Nhận xét: Nên chọn chính sách truy cập dạng DNF vì nó dễ hiểu và linh hoạt hơn.
 # Các kết quả đo đạc
 Thời gian thực thi các bước sẽ khác nhau tùy thuộc vào số lượng thuộc tính, số lượng AA, số lượng thuộc tính của người dùng và chính sách truy cập.
 Ngoài ra nó còn phụ thuộc vào loại đường cong elliptic được chọn để khởi tạo hệ thống, các tham số của từng loại nằm trong file `pairingcurves.py`. 
